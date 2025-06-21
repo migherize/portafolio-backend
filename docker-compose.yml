@@ -2,6 +2,7 @@ version: '3.9'
 
 services:
   web:
+    container_name: portafolio_interfaz
     build: .
     command: sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
     volumes:
@@ -14,6 +15,7 @@ services:
       - db
 
   db:
+    container_name: portafolio_db
     image: postgres:15
     environment:
       POSTGRES_DB: portafolio
